@@ -1,4 +1,4 @@
-class Creature{
+class LivingCreature{
     constructor(x, y){
         this.x = x
         this.y = y
@@ -44,7 +44,7 @@ class Creature{
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class Grass extends Creature{
+class Grass extends LivingCreature{
     static Creature_ID = 1
     static roundsBeforeMultiply = 10
     constructor(x,y){
@@ -70,7 +70,7 @@ class Grass extends Creature{
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class GrassEater extends Creature{
+class GrassEater extends LivingCreature{
     static Creature_ID = 2
     static roundsBeforeMultiply = 6
     constructor(x, y){
@@ -150,7 +150,7 @@ class GrassEater extends Creature{
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class MeatEater extends Creature{
+class MeatEater extends LivingCreature{
     static Creature_ID = 3
     constructor(x, y){
         super(x,y)
@@ -228,7 +228,7 @@ class MeatEater extends Creature{
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class Mushroom extends Creature{
+class Mushroom extends LivingCreature{
     static Creature_ID = 4
     constructor(x, y){
         super(x,y)
@@ -266,7 +266,7 @@ class Mushroom extends Creature{
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class EverythingEater extends Creature{
+class EverythingEater extends LivingCreature{
     static Creature_ID = 5
     constructor(x, y){
         super(x,y)
