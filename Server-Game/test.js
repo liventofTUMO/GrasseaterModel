@@ -1,12 +1,12 @@
-let object = {
+let obj = {
     first_name = "Liam",
     last_name = "Wiren-Chapel",
 
     sayHello(){
-        console.log("Hello There!")
+        console.log("Hello There!", this.first_name)
     }
 }
 
-console.log(object);
-console.log(object.last_name);
-object.sayHello();
+console.log(obj);
+console.log(obj.last_name);
+obj.sayHello();
