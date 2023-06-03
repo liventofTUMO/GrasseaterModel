@@ -48,6 +48,7 @@ class Grass extends Creature{
     static Creature_ID = 1
     static roundsBeforeMultiply = 6
     constructor(x,y){
+        super(x,y)
         this.color = 1
         this.rounds_G = Math.floor(random(0, Grass.roundsBeforeMultiply))
     }
@@ -74,6 +75,7 @@ class GrassEater extends Creature{
     static Creature_ID = 2
     static roundsBeforeMultiply = 6
     constructor(x, y){
+        super(x,y)
         this.color = 2
         this.eatCounter = 0
         this.noteatCounter = 0
@@ -152,6 +154,7 @@ class GrassEater extends Creature{
 class MeatEater extends Creature{
     static Creature_ID = 3
     constructor(x, y){
+        super(x,y)
         this.eatenCounter = 0
         this.notEatenCounter = 0
         this.rounds_ME = 0
@@ -229,6 +232,7 @@ class MeatEater extends Creature{
 class Mushroom extends Creature{
     static Creature_ID = 4
     constructor(x, y){
+        super(x,y)
         this.grassRespawnedCounter = 0
         this.rounds_M = 0
     }
@@ -266,6 +270,7 @@ class Mushroom extends Creature{
 class EverythingEater extends Creature{
     static Creature_ID = 5
     constructor(x, y){
+        super(x,y)
         this.eatenCounter = 0
         this.notEatenCounter = 0
         this.rounds_EE = 0
