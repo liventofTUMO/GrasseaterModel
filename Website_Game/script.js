@@ -16,7 +16,7 @@ const mushroomArr = []
 const everythingEaterArr = []
 
 function setup(){
-    configureMatrix(30,15)
+    configureMatrix(100,100)
     console.log(matrix)
 
     createCanvas(side * matrix[0].length + 1, side * matrix.length + 1)
