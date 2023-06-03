@@ -3,7 +3,7 @@ class Creature{
         this.color = 1
         this.x = x
         this.y = y
-        this.rounds_G = Math.floor(random(0, Grass.roundsBeforeMultiply))
+        this.rounds_G = Math.floor(random(0, this.roundsBeforeMultiply))
         this.neighbors = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -15,11 +15,6 @@ class Creature{
             [this.x + 1, this.y + 1],
         ]
     }
-}
-
-class Grass extends Creature{
-    static Creature_ID = 1
-    static roundsBeforeMultiply = 6
 
     chooseCell(symbol){
         let found = []
@@ -36,6 +31,11 @@ class Grass extends Creature{
         }
         return found
     }
+}
+
+class Grass extends Creature{
+    static Creature_ID = 1
+    static roundsBeforeMultiply = 6
 
     multiply(){
         this.rounds_G++
