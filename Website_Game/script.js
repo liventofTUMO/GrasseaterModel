@@ -6,7 +6,7 @@ matrix.place = (row, column, creature) => {
     matrix[column][row] = creature
 }
 
-const side = 20
+const side = 10
 const fr = 10
 
 const grassArr = []
@@ -16,7 +16,7 @@ const mushroomArr = []
 const everythingEaterArr = []
 
 function setup(){
-    configureMatrix(50,50)
+    configureMatrix(35,35)
     console.log(matrix)
 
     createCanvas(side * matrix[0].length + 1, side * matrix.length + 1)
