@@ -55,9 +55,8 @@ class Grass extends Creature{
 
     multiply(){
         this.rounds_G++
-        if (this.rounds_G < Grass.roundsBeforeMultiply) return;
+        if (this.rounds_G < Grass.roundsBeforeMultiply - 1) return;
         this.rounds_G = 0
-
         let emptyfields = this.chooseCell(0)
         if (emptyfields.length > 0){
             let theChosenField = random(emptyfields)
