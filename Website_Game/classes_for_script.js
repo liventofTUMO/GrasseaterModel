@@ -55,7 +55,7 @@ class Grass extends LivingCreature{
 
     multiply(){
         this.rounds_G++
-        if (this.rounds_G < Grass.roundsBeforeMultiply - 1) return;
+        if (this.rounds_G < Grass.roundsBeforeMultiply) return;
         this.rounds_G = 0
         let emptyfields = this.chooseCell(0)
         if (emptyfields.length > 0){
@@ -72,7 +72,7 @@ class Grass extends LivingCreature{
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class GrassEater extends LivingCreature{
     static Creature_ID = 2
-    static roundsBeforeMultiply = 6
+    static roundsBeforeMultiply = 4
     constructor(x, y){
         super(x,y)
         this.color = 2
