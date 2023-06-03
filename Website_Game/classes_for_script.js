@@ -46,7 +46,7 @@ class Creature{
 
 class Grass extends Creature{
     static Creature_ID = 1
-    static roundsBeforeMultiply = 6
+    static roundsBeforeMultiply = 8
     constructor(x,y){
         super(x,y)
         this.color = 1
