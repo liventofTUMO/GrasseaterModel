@@ -72,7 +72,7 @@ class Grass extends LivingCreature{
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 class GrassEater extends LivingCreature{
     static Creature_ID = 2
-    static roundsBeforeMultiply = 4
+    static roundsBeforeMultiply = 6
     constructor(x, y){
         super(x,y)
         this.color = 2
@@ -135,7 +135,7 @@ class GrassEater extends LivingCreature{
     }
 
     multiply(){
-        if (this.eatCounter > 2){
+        if (this.eatCounter > 1){
             let emptyfields = this.chooseCell(0)
             if (emptyfields.length > 0){
                 let theChosenField = random(emptyfields)
