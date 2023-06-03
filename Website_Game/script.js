@@ -6,7 +6,7 @@ matrix.place = (row, column, creature) => {
     matrix[column][row] = creature
 }
 
-const side = 10
+const side = 20
 const fr = 10
 
 const grassArr = []
