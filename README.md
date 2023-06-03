@@ -9,4 +9,4 @@ Here there are five beings:
 	Brown represents the Mushrooms which respawns Grass when there is no more grass but can only eaten by Everythingeaters
 	Black represents the Everythingeater which eats everything
 
-All of this spawns randomly
+-- All of this spawns randomly --
