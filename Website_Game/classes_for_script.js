@@ -31,6 +31,19 @@ class Creature{
         }
         return found
     }
+
+    updateNeighbors(){
+        this.neighbors = [
+            [this.x - 1, this.y - 1],
+            [this.x, this.y - 1],
+            [this.x + 1, this.y - 1],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
+            [this.x - 1, this.y + 1],
+            [this.x, this.y + 1],
+            [this.x + 1, this.y + 1],
+        ]
+    }
 }
 
 class Grass extends Creature{
@@ -55,57 +68,9 @@ class Grass extends Creature{
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class GrassEater{
+class GrassEater extends Creature{
     static Creature_ID = 2
     static roundsBeforeMultiply = 6
-    constructor(x, y){
-        this.color = 2
-        this.x = x
-        this.y = y
-        this.eatCounter = 0
-        this.noteatCounter = 0
-        this.rounds_GE = Math.floor(random(0, GrassEater.roundsBeforeMultiply))
-        this.neighbors = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1],
-        ]
-    }
-
-    chooseCell(symbol){
-        this.updateNeighbors()
-        let found = []
-        for (let i = 0; i < this.neighbors.length; i++){
-            const posi = this.neighbors[i]
-            let posiX = posi[0]
-            let posiY = posi[1]
-            if (posiX >= 0 && posiX < matrix[0].length && posiY >= 0 && posiY < matrix.length){
-                let wert = matrix[posiY][posiX]
-                if (wert == symbol){
-                    found.push(posi)
-                }
-            }
-        }
-        return found
-    }
-
-    updateNeighbors(){
-        this.neighbors = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1],
-        ]
-    }
 
     move(){
         let emptyfields = this.chooseCell(0)
@@ -127,10 +92,6 @@ class GrassEater{
 
         let grassFields = this.chooseCell(Grass.Creature_ID)
         if(grassFields.length > 0){
-            // let newPos = random(grassFields)
-            // let newX = newPos[0]
-            // let newY = newPos[1]
-
             const [row, column] = random(grassFields)
             matrix.place(row, column, GrassEater.Creature_ID)
             matrix.clear(this.x, this.y)
@@ -180,55 +141,8 @@ class GrassEater{
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class MeatEater{
+class MeatEater extends Creature{
     static Creature_ID = 3
-    constructor(x, y){
-        this.x = x
-        this.y = y
-        this.eatenCounter = 0
-        this.notEatenCounter = 0
-        this.rounds_ME = 0
-        this.neighbors = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1],
-        ]
-    }
-
-    chooseCell(symbol){
-        this.updateNeighbors()
-        let found = []
-        for (let i = 0; i < this.neighbors.length; i++){
-            const posi = this.neighbors[i]
-            let posiX = posi[0]
-            let posiY = posi[1]
-            if (posiX >= 0 && posiX < matrix[0].length && posiY >= 0 && posiY < matrix.length){
-                let wert = matrix[posiY][posiX]
-                if (wert == symbol){
-                    found.push(posi)
-                }
-            }
-        }
-        return found
-    }
-
-    updateNeighbors(){
-        this.neighbors = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1],
-        ]
-    }
 
     move(){
         let emptyfields = this.chooseCell(0)
@@ -299,54 +213,8 @@ class MeatEater{
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class Mushroom{
+class Mushroom extends Creature{
     static Creature_ID = 4
-    constructor(x, y){
-        this.x = x
-        this.y = y
-        this.grassRespawnedCounter = 0
-        this.rounds_M = 0
-        this.neighbors = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1],
-        ]
-    }
-
-    chooseCell(symbol){
-        this.updateNeighbors()
-        let found = []
-        for (let i = 0; i < this.neighbors.length; i++){
-            const posi = this.neighbors[i]
-            let posiX = posi[0]
-            let posiY = posi[1]
-            if (posiX >= 0 && posiX < matrix[0].length && posiY >= 0 && posiY < matrix.length){
-                let wert = matrix[posiY][posiX]
-                if (wert == symbol){
-                    found.push(posi)
-                }
-            }
-        }
-        return found
-    }
-
-    updateNeighbors(){
-        this.neighbors = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1],
-        ]
-    }
 
     demise(){
         matrix[this.y][this.x] = EverythingEater.Creature_ID
@@ -378,53 +246,8 @@ class Mushroom{
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class EverythingEater{
+class EverythingEater extends Creature{
     static Creature_ID = 5
-    constructor(x, y){
-        this.x = x
-        this.y = y
-        this.eatenCounter = 0
-        this.notEatenCounter = 0
-        this.rounds_EE = 0
-        this.neighbors = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1],
-        ]
-    }
-
-    chooseCell(values){
-        this.updateNeighbors()
-        const found = []
-        for (let i = 0; i < this.neighbors.length; i++){
-            const [posiX, posiY] = this.neighbors[i]
-            if (posiX >= 0 && posiX < matrix[0].length && posiY >= 0 && posiY < matrix.length){
-                let wert = matrix[posiY][posiX]
-                if (values.indexOf(wert) >= 0){
-                    found.push([posiX, posiY])
-                }
-            }
-        }
-        return found
-    }
-
-    updateNeighbors(){
-        this.neighbors = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1],
-        ]
-    }
 
     move(){
         const movementCell = [0, 6]
