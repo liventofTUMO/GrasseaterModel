@@ -136,7 +136,7 @@ class GrassEater extends Creature{
     }
 
     multiply(){
-        if (this.eatCounter > 4){
+        if (this.eatCounter > 2){
             let emptyfields = this.chooseCell(0)
             if (emptyfields.length > 0){
                 let theChosenField = random(emptyfields)
@@ -215,7 +215,7 @@ class MeatEater extends Creature{
     }
 
     multiply(){
-        if (this.eatenCounter > 6){
+        if (this.eatenCounter > 4){
             let emptyfields = this.chooseCell(0)
             if (emptyfields.length > 0){
                 let theChosenField = random(emptyfields)
