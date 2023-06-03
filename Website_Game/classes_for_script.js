@@ -1,6 +1,4 @@
-class Grass{
-    static Creature_ID = 1
-    static roundsBeforeMultiply = 6
+class Creature{
     constructor(x, y){
         this.color = 1
         this.x = x
@@ -17,6 +15,11 @@ class Grass{
             [this.x + 1, this.y + 1],
         ]
     }
+}
+
+class Grass extends Creature{
+    static Creature_ID = 1
+    static roundsBeforeMultiply = 6
 
     chooseCell(symbol){
         let found = []
