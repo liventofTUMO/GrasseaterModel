@@ -6,8 +6,8 @@ matrix.place = (row, column, creature) => {
     matrix[column][row] = creature
 }
 
-const side = 20
-const fr = 20
+const side = 10
+const fr = 10
 
 const grassArr = []
 const grassEaterArr = []
