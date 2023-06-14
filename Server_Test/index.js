@@ -19,3 +19,4 @@ function main(){
     let file = "hello.txt"
     fs.appendFileSync(file, "Hello world/n")
 }
+main()
