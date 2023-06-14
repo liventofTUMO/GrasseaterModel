@@ -7,7 +7,6 @@
 // }
 // main()
 
-****************
 const Square = require("./module")
 function main(){
     let Square = new Square(50)
