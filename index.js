@@ -7,8 +7,15 @@
 // }
 // main()
 
-const Square = require("./module")
+// const Square = require("./module")
+// function main(){
+//     let Square = new Square(50)
+//     console.log(square.getArea())
+// }
+
+const fs = require("fs")
+
 function main(){
-    let Square = new Square(50)
-    console.log(square.getArea())
+    let file 0 "hello.txt"
+    fs.appendFileSync(file, "Hello world/n")
 }
