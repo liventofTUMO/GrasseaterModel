@@ -1,5 +1,5 @@
-const LivingCreature = require("./Class_LivingCreature")
-class Grass extends LivingCreature{
+const livingCreature = require("./Class_LivingCreature")
+module.exports = class Grass extends livingCreature{
     static Creature_ID = 1
     static roundsBeforeMultiply = 10
     constructor(x,y){
