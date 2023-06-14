@@ -1,5 +1,5 @@
-const livingCreature = require("./Class_LivingCreature")
-module.exports = class EverythingEater extends livingCreature{
+const LivingCreature = require("./Class_LivingCreature")
+module.exports = class EverythingEater extends LivingCreature{
     static Creature_ID = 5
     constructor(x, y){
         super(x,y)

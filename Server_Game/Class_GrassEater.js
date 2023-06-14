@@ -1,5 +1,5 @@
-const livingCreature = require("./Class_LivingCreature")
-module.exports = class GrassEater extends livingCreature{
+const LivingCreature = require("./Class_LivingCreature")
+module.exports = class GrassEater extends LivingCreature{
     static Creature_ID = 2
     static roundsBeforeMultiply = 6
     constructor(x, y){
@@ -7,7 +7,7 @@ module.exports = class GrassEater extends livingCreature{
         this.color = 2
         this.eatCounter = 0
         this.noteatCounter = 0
-        this.rounds_GE = Math.floor(random(0, GrassEater.roundsBeforeMultiply))
+        //this.rounds_GE = Math.floor(random(0, GrassEater.roundsBeforeMultiply))
     }
 
     move(){

@@ -21,15 +21,17 @@ const meatEaterArr = []
 const mushroomArr = []
 const everythingEaterArr = []
 
+function placeRandomMushroom() {
+    const raY = Math.floor(random(0, matrix.length))
+    const raX = Math.floor(random(0, matrix[0].length))
+    matrix[raY][raX] = Mushroom.Creature_ID
+}
+
 function initGame(){
-    configureMatrix(35,35)
-    console.log(matrix)
+    //configureMatrix(35,35)
+    //console.log(matrix)
 
-    createCanvas(side * matrix[0].length + 1, side * matrix.length + 1)
-    background("#acacac")
-    frameRate(fr)
-
-    placeRandomMushroom()
+    //placeRandomMushroom()
     for(let column = 0; column < matrix.length; column ++){
         for(let row = 0; row < matrix[column].length; row++){
             const creatureType = matrix[column][row]
@@ -64,12 +66,12 @@ function configureMatrix(columns, rows) {
     for (let y = 0; y < rows; y++) {
         matrix.push([])
         for (let x = 0; x < columns; x++) {
-            const randomValue = Math.floor(random(0, 3.1))
-            const creatureType = creatureTypes[randomValue];            
+            //const randomValue = Math.floor(random(0, 3.1))
+            //const creatureType = creatureTypes[randomValue];            
             matrix[y][x] = creatureType
         }
     }
 }
 
 initGame()
-console.log(grassEaterArr)
+//console.log(grassEaterArr)

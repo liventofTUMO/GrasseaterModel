@@ -1,11 +1,11 @@
-const livingCreature = require("./Class_LivingCreature")
-module.exports = class Grass extends livingCreature{
+const LivingCreature = require("./Class_LivingCreature")
+module.exports = class Grass extends LivingCreature{
     static Creature_ID = 1
     static roundsBeforeMultiply = 10
     constructor(x,y){
         super(x,y)
         this.color = 1
-        this.rounds_G = Math.floor(random(0, Grass.roundsBeforeMultiply))
+        //this.rounds_G = Math.floor(random(0, Grass.roundsBeforeMultiply))
     }
 
     multiply(){
