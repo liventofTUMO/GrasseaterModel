@@ -13,4 +13,22 @@ function bodyClick(evt){
     console.log("Clicked at X: " + evt.pageX + ", Y: " + evt.pageY)
 }
 
-//window.onclick = bodyClick
+const my8tn = document.getElementById("send_btn")
+
+function btnCallback(){
+    alert("Hello There")
+}
+//my8tn.onclick = btnCallback
+my8tn.addEventListener("click", btnCallback)
+
+function loadCallback(){
+    alert("Ka-Bomb!")
+}
+window.onload = loadCallback
+
+function keyCallback(evt){
+    console.log(evt)
+}
+window.onkeydown = keyCallback
+
+window.onclick = bodyClick
