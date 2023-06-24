@@ -17,7 +17,6 @@ app.use(express.static("./"))
 app.get("/", function (req, res){
     res.redirect(index.html)
 })
-server.listen(3000)
 
 const matrix = [];
 matrix.clear = (row, column) => {
@@ -173,9 +172,13 @@ window.onclick = click
 window.onkeydown = keyDown
 
 
-initGame()
-//console.log(grassEaterArr)
-p.addEventListener("click", clickHandler)
-setInterval(function(){
-    updateGame()
-}, 1000)
+server.listen(3000, function(){
+    console.log("Server ist gestartet und hört auf Port 3000")
+    initGame()
+    //console.log(grassEaterArr)
+    p.addEventListener("click", clickHandler)
+    setInterval(function(){
+        updateGame()
+    }, 1000)
+  
+})
