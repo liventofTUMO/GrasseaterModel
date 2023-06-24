@@ -33,4 +33,7 @@ function keyCallback(evt){
 }
 window.onkeydown = keyCallback
 
+function mouseClicked(){
+    console.log(mouseX, mouseY)
+}
 window.onclick = bodyClick
