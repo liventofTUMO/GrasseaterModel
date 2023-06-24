@@ -154,7 +154,7 @@ function keyPressed(){
     console.log(key)
 }
 
-window.oncl = bodyClick
+window.onclick = bodyClick
 window.onload = windowLoad
 window.onclick = click
 window.onkeydown = keyDown

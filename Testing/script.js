@@ -6,4 +6,11 @@ function clickHandler(evt){
    this.innerText = str;
 }
 
-let p = document.getElementById("pElement");p.addEventListener("click", clickHandler);
+let p = document.getElementById("pElement");
+p.addEventListener("click", clickHandler);
+
+function bodyClick(evt){
+    console.log("Clicked at X: " + evt.pageX + ", Y: " + evt.pageY)
+}
+
+window.onclick = bodyClick
