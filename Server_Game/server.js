@@ -166,10 +166,10 @@ function keyPressed(){
     console.log(key)
 }
 
-window.onclick = bodyClick
-window.onload = windowLoad
-window.onclick = click
-window.onkeydown = keyDown
+//window.onclick = bodyClick
+//window.onload = windowLoad
+//window.onclick = click
+//window.onkeydown = keyDown
 
 
 server.listen(3000, function(){
