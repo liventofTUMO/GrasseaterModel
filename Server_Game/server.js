@@ -3,8 +3,21 @@ const GrassEater = require("./Class_GrassEater")
 const MeatEater = require("./Class_MeatEater")
 const Mushroom = require("./Class_Mushroom")
 const EverythingEater = require("./Class_EverythingEater")
-const clickCount = 0
-const p = document.getElementById("pElement")
+let clickCount = 0
+let p = document.getElementById("pElement")
+
+const express = require("express")
+const app = express()
+
+const server = require("http").Server(app)
+const io = require("socket.io")(server)
+let messages = []
+
+app.use(express.static("./"))
+app.get("/", function (req, res){
+    res.redirect(index.html)
+})
+server.listen(3000)
 
 const matrix = [];
 matrix.clear = (row, column) => {
