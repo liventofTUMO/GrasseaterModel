@@ -5,14 +5,16 @@ function clickHandler(evt){
    let str = "Thanks for clicking " + clickCount;
    this.innerText = str;
 }
-
+ function setup (){
+    createCanvas(500, 500)
+    background("red")
+ }
 let p = document.getElementById("pElement");
 p.addEventListener("click", clickHandler);
 
 function bodyClick(evt){
     console.log("Clicked at X: " + evt.pageX + ", Y: " + evt.pageY)
 }
-
 const my8tn = document.getElementById("send_btn")
 
 function btnCallback(){
