@@ -4,7 +4,7 @@ const MeatEater = require("./Class_MeatEater")
 const Mushroom = require("./Class_Mushroom")
 const EverythingEater = require("./Class_EverythingEater")
 let clickCount = 0
-let p = document.getElementById("pElement")
+//let p = Document.getElementById("pElement")
 
 const express = require("express")
 const app = express()
@@ -130,7 +130,7 @@ function configureMatrix(columns, rows) {
 
 
 
-
+//
 function clickHandler(evt){
     clickCount++
     console.log(evt)
