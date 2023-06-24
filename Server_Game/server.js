@@ -98,15 +98,6 @@ function updateGame(){
     }
 }
 
-
-
-function clickHandler(evt){
-    clickCount++
-    console.log(evt)
-    let str = "Thanks for clicking" + clickCount
-    this.innerText = str
-}
-
 function configureMatrix(columns, rows) {
     const creatureTypes = [
         0,
@@ -124,6 +115,50 @@ function configureMatrix(columns, rows) {
         }
     }
 }
+
+
+
+
+function clickHandler(evt){
+    clickCount++
+    console.log(evt)
+    let str = "Thanks for clicking" + clickCount
+    this.innerText = str
+}
+
+function bodyClick(evt){
+    console.log("Clicked at X: " + evt.pageX + ", Y: " + evt.pageY)
+}
+
+function windowLoad(){
+    console.log("Window is loaded")
+}
+
+function preload(){
+    console.log("Window is loading")
+}
+
+function click(evt){
+    console.log(evt.pageX, evt.pageY)
+}
+
+function mousePressed(){
+    console.log(mouseX, mouseY)
+}
+
+function keyDown(evt){
+    console.log("You printed " + evt.key)
+}
+
+function keyPressed(){
+    console.log(key)
+}
+
+window.oncl = bodyClick
+window.onload = windowLoad
+window.onclick = click
+window.onkeydown = keyDown
+
 
 initGame()
 //console.log(grassEaterArr)
