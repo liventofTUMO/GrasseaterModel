@@ -3,6 +3,8 @@ const GrassEater = require("./Class_GrassEater")
 const MeatEater = require("./Class_MeatEater")
 const Mushroom = require("./Class_Mushroom")
 const EverythingEater = require("./Class_EverythingEater")
+const clickCount = 0
+const p = document.getElementById("pElement")
 
 const matrix = [];
 matrix.clear = (row, column) => {
@@ -97,6 +99,14 @@ function updateGame(){
 }
 
 
+
+function clickHandler(evt){
+    clickCount++
+    console.log(evt)
+    let str = "Thanks for clicking" + clickCount
+    this.innerText = str
+}
+
 function configureMatrix(columns, rows) {
     const creatureTypes = [
         0,
@@ -117,6 +127,7 @@ function configureMatrix(columns, rows) {
 
 initGame()
 //console.log(grassEaterArr)
+p.addEventListener("click", clickHandler)
 setInterval(function(){
     updateGame()
 }, 1000)
