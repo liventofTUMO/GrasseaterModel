@@ -4,7 +4,6 @@ const MeatEater = require("./Class_MeatEater")
 const Mushroom = require("./Class_Mushroom")
 const EverythingEater = require("./Class_EverythingEater")
 let clickCount = 0
-//let p = Document.getElementById("pElement")
 
 const express = require("express")
 const app = express()
@@ -130,53 +129,54 @@ function configureMatrix(columns, rows) {
 
 
 
-//
+/*
 function clickHandler(evt){
-    clickCount++
-    console.log(evt)
-    let str = "Thanks for clicking" + clickCount
-    this.innerText = str
+    clickCount++;
+    console.log(evt);
+    let str = "Thanks for clicking " + clickCount;
+    this.innerText = str;
 }
+function setup (){
+    createCanvas(500, 500)
+    background("red")
+}
+
+let p = document.getElementById(".pElement")
+
+if (typeof document !== 'undefined') {
+    let element = document.querySelector('.pElement')
+}
+
+p.addEventListener("click", clickHandler);
 
 function bodyClick(evt){
     console.log("Clicked at X: " + evt.pageX + ", Y: " + evt.pageY)
 }
 
-function windowLoad(){
-    console.log("Window is loaded")
+const my8tn = document.getElementById("send_btn") 
+function btnCallback(){
+    alert("Hello There")
+}
+ 
+function loadCallback(){
+    alert("Ka-Bomb!")
+}
+ 
+function keyCallback(evt){
+    console.log(evt)
 }
 
-function preload(){
-    console.log("Window is loading")
-}
+//my8tn.onclick = btnCallback
+my8tn.addEventListener("click", btnCallback)
+window.onload = loadCallback
+window.onkeydown = keyCallback
+window.onclick = bodyClick
 
-function click(evt){
-    console.log(evt.pageX, evt.pageY)
-}
-
-function mousePressed(){
-    console.log(mouseX, mouseY)
-}
-
-function keyDown(evt){
-    console.log("You printed " + evt.key)
-}
-
-function keyPressed(){
-    console.log(key)
-}
-
-//window.onclick = bodyClick
-//window.onload = windowLoad
-//window.onclick = click
-//window.onkeydown = keyDown
-
-
+*/
 server.listen(3000, function(){
     console.log("Server ist gestartet und hört auf Port 3000")
     initGame()
     //console.log(grassEaterArr)
-    p.addEventListener("click", clickHandler)
     setInterval(function(){
         updateGame()
     }, 1000)
