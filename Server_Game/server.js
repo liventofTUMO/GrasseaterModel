@@ -9,7 +9,6 @@ const app = express()
 
 const server = require("http").Server(app)
 const io = require("socket.io")(server)
-let messages = []
 
 app.use(express.static("./"))
 app.get("/", function (req, res){
@@ -120,8 +119,8 @@ function configureMatrix(columns, rows) {
     for (let y = 0; y < rows; y++) {
         matrix.push([])
         for (let x = 0; x < columns; x++) {
-            //const randomValue = Math.floor(random(0, 3.1))
-            //const creatureType = creatureTypes[randomValue];            
+            const randomValue = Math.floor(random(0, 3.1))
+            const creatureType = creatureTypes[randomValue];            
             matrix[y][x] = creatureType
         }
     }
@@ -175,10 +174,19 @@ window.onclick = bodyClick
 */
 server.listen(3000, function(){
     console.log("Server ist gestartet und hört auf Port 3000")
+})
+
+
+io.on("connection", function(socket){
+    console.log("ws connection established ...", io.engine.clientsCount)
+
+    /*
+    socket.emit("send matrix", matrix)
+    io.sockets
     initGame()
-    //console.log(grassEaterArr)
     setInterval(function(){
         updateGame()
+        console.log("Updating Game ...")
     }, 1000)
-  
+  */
 })
