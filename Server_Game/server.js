@@ -15,7 +15,14 @@ app.get("/", function (req, res){
     res.redirect("client.html")
 })
 
-const matrix = [];
+const matrix = [
+    [1,0,0,0,1,0,0,1,1,1,0],
+    [1,0,0,0,1,0,0,1,1,1,0],
+    [1,0,0,0,1,0,0,1,1,1,0],
+    [1,0,0,0,1,0,0,1,1,1,0],
+    [1,0,0,0,1,0,0,1,1,1,0],
+    [1,0,0,0,1,0,0,1,1,1,0]
+];
 matrix.clear = (row, column) => {
     matrix[column][row] = 0
 }
@@ -37,6 +44,7 @@ function placeRandomMushroom() {
     const raX = Math.floor(random(0, matrix[0].length))
     matrix[raY][raX] = Mushroom.Creature_ID
 }
+
 
 function initGame(){
     //configureMatrix(35,35)
@@ -179,9 +187,9 @@ server.listen(3000, function(){
 
 io.on("connection", function(socket){
     console.log("ws connection established ...", io.engine.clientsCount)
+    socket.emit("send matrix", matrix)
 
     /*
-    socket.emit("send matrix", matrix)
     io.sockets
     initGame()
     setInterval(function(){
