@@ -24,8 +24,8 @@ class EverythingEater extends LivingCreature{
             let newPos = random(emptyfields)
             let newX = newPos[0]
             let newY = newPos[1]
-            matrix[newY][newX] = EverythingEater.Creature_ID
-            matrix[this.y][this.x] = 6
+            game.matrix[newY][newX] = EverythingEater.Creature_ID
+            game.matrix[this.y][this.x] = 6
             this.x = newX
             this.y = newY
         }
@@ -48,8 +48,8 @@ class EverythingEater extends LivingCreature{
         const newPos = random(everythingEaterFields)
         const newX = newPos[0]
         const newY = newPos[1]
-        matrix[newY][newX] = EverythingEater.Creature_ID
-        matrix[this.y][this.x] = 6
+        game.matrix[newY][newX] = EverythingEater.Creature_ID
+        game.matrix[this.y][this.x] = 6
         this.x = newX
         this.y = newY
         this.eatenCounter++
@@ -75,7 +75,7 @@ class EverythingEater extends LivingCreature{
 
     demise(){
         if(this.notEatenCounter >= 10){
-            matrix[this.y][this.x] = 6
+            game.matrix[this.y][this.x] = 6
             for (let i = 0; i < everythingEaterArr.length; i++) {
                 const everythingEaterOBJ = everythingEaterArr [i];
                 if(everythingEaterOBJ.x == this.x && everythingEaterOBJ.y == this.y){
