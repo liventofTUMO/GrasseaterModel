@@ -1,25 +1,27 @@
-const side = 50
+const side = 10
 const fr = 10
-let matrix = [
-    [1,0,0,0,1,0,0,1,1,1,0],
-    [1,0,0,0,1,0,0,1,1,1,0],
-    [1,0,0,0,1,0,0,1,1,1,0],
-    [1,0,0,0,1,0,0,1,1,1,0],
-    [1,0,0,0,1,0,0,1,1,1,0],
-    [1,0,0,0,1,0,0,1,1,1,0]
-];
+let matrix = [[]];
+/*
 matrix.clear = (row, column) => {
     matrix[column][row] = 0
 }
 matrix.place = (row, column, creature) => {
     matrix[column][row] = creature
 }
+*/
 
 function main(){
     const socket = io()
 
-    function openMatrix(matrixData){
-        matrix = matrixData
+    function openMatrix(matrixUpdate){
+        const mustReset = matrix.length != matrixUpdate.length || matrix[0].length != matrixUpdate[0].length;
+        matrix = matrixUpdate
+        if (mustReset)
+        {
+            resizeCanvas(side * matrix[0].length + 1, side * matrix.length + 1);
+        }
+
+        console.log(matrix[0].length, matrix.length);
         drawMatrix()
     }
     socket.on("send matrix", openMatrix)

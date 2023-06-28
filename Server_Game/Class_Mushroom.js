@@ -1,4 +1,5 @@
 const LivingCreature = require("./Class_LivingCreature")
+const EverythingEater = require("./Class_EverythingEater")
 module.exports = class Mushroom extends LivingCreature{
     static Creature_ID = 4
     constructor(x, y){
@@ -8,6 +9,7 @@ module.exports = class Mushroom extends LivingCreature{
     }
 
     demise(){
+        const { matrix, everythingEaterArr, mushroomArr } = game;
         matrix[this.y][this.x] = EverythingEater.Creature_ID
         const everythingEater = new EverythingEater(this.x, this.y)
         everythingEaterArr.push(everythingEater)
@@ -20,12 +22,13 @@ module.exports = class Mushroom extends LivingCreature{
     }
 
     respawnGrass(){
+        const { matrix, grassEaterArr, grassArr} = game
         if (grassEaterArr.length > 0) return
 
         this.updateNeighbors()
-        let emptyfields = this.chooseCell(0)
-        if (emptyfields.length > 0){
-            const [x, y] = random(emptyfields)
+        let emptyFields = this.chooseCell(0)
+        if (emptyFields.length > 0){
+            const [x, y] = randomEntry(emptyFields)
             let grass = new Grass(x, y)
             grassArr.push(grass)
             matrix.place(x, y, Grass.Creature_ID)

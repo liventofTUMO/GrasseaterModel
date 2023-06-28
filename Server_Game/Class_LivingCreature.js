@@ -17,13 +17,12 @@ module.exports = class LivingCreature{
     chooseCell(symbol){
         let found = []
         for (let i = 0; i < this.neighbors.length; i++){
-            const pos = this.neighbors[i]
-            let posX = pos[0]
-            let posY = pos[1]
+            let [posX, posY] = this.neighbors[i];
+            const { matrix } = game;
             if (posX >= 0 && posX < matrix[0].length && posY >= 0 && posY < matrix.length){
                 let wert = matrix[posY][posX]
                 if (wert == symbol){
-                    found.push(pos)
+                    found.push([posX, posY])
                 }
             }
         }
