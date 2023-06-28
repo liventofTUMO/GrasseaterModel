@@ -47,10 +47,10 @@ function placeRandomMushroom() {
 
 
 function initGame(){
-    //configureMatrix(35,35)
+    configureMatrix(35,35)
     //console.log(matrix)
 
-    //placeRandomMushroom()
+    placeRandomMushroom()
     for(let column = 0; column < matrix.length; column ++){
         for(let row = 0; row < matrix[column].length; row++){
             const creatureType = matrix[column][row]
@@ -189,12 +189,9 @@ io.on("connection", function(socket){
     console.log("ws connection established ...", io.engine.clientsCount)
     socket.emit("send matrix", matrix)
 
-    /*
-    io.sockets
     initGame()
     setInterval(function(){
         updateGame()
         console.log("Updating Game ...")
     }, 1000)
-  */
 })

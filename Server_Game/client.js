@@ -1,13 +1,19 @@
- let matrix = [
+const side = 50
+const fr = 10
+let matrix = [
     [1,0,0,0,1,0,0,1,1,1,0],
     [1,0,0,0,1,0,0,1,1,1,0],
     [1,0,0,0,1,0,0,1,1,1,0],
     [1,0,0,0,1,0,0,1,1,1,0],
     [1,0,0,0,1,0,0,1,1,1,0],
     [1,0,0,0,1,0,0,1,1,1,0]
-]
-const side = 50
-const fr = 10
+];
+matrix.clear = (row, column) => {
+    matrix[column][row] = 0
+}
+matrix.place = (row, column, creature) => {
+    matrix[column][row] = creature
+}
 
 function main(){
     const socket = io()
@@ -24,6 +30,26 @@ function setup(){
     background("#acacac")
     frameRate(fr)
 }
+
+/*
+function configureMatrix(columns, rows) {
+    const creatureTypes = [
+        0,
+        Grass.Creature_ID,
+        GrassEater.Creature_ID,
+        MeatEater.Creature_ID,
+        Mushroom.Creature_ID
+    ];
+    for (let y = 0; y < rows; y++) {
+        matrix.push([])
+        for (let x = 0; x < columns; x++) {
+            const randomValue = Math.floor(random(0, 3.1))
+            const creatureType = creatureTypes[randomValue];            
+            matrix[y][x] = creatureType
+        }
+    }
+}
+*/
 
 function drawMatrix(columns, rows) {
     for(let height = 0; height < matrix.length; height ++){
