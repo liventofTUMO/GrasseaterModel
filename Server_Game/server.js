@@ -1,9 +1,8 @@
-const Grass = require("./Class_Grass")
-const GrassEater = require("./Class_GrassEater")
-const MeatEater = require("./Class_MeatEater")
-const Mushroom = require("./Class_Mushroom")
-const EverythingEater = require("./Class_EverythingEater")
-let clickCount = 0
+const Grass = require("./Class_Grass.js")
+const GrassEater = require("./Class_GrassEater.js")
+const MeatEater = require("./Class_MeatEater.js")
+const Mushroom = require("./Class_Mushroom.js")
+const EverythingEater = require("./Class_EverythingEater.js")
 
 const express = require("express")
 const app = express()
@@ -67,6 +66,7 @@ function initGame(){
         }
     }
 }
+
 
 function updateGame(){
     for (grass of grassArr){
