@@ -1,3 +1,4 @@
+/*
 let clickCount = 0
 function clickHandler(evt){
     clickCount++;
@@ -35,9 +36,9 @@ function keyCallback(evt){
     console.log(evt)
 }
 
-//my8tn.onclick = btnCallback
-my8tn.addEventListener("click", btnCallback)
+my8tn.onclick = btnCallback
+//my8tn.addEventListener("click", btnCallback)
 window.onload = loadCallback
 window.onkeydown = keyCallback
 window.onclick = bodyClick
-
+*/
