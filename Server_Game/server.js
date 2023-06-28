@@ -16,12 +16,12 @@ app.get("/", function (req, res){
 })
 
 const matrix = [
-    [1,0,0,0,1,0,0,1,1,1,0],
-    [1,0,0,0,1,0,0,1,1,1,0],
-    [1,0,0,0,1,0,0,1,1,1,0],
-    [1,0,0,0,1,0,0,1,1,1,0],
-    [1,0,0,0,1,0,0,1,1,1,0],
-    [1,0,0,0,1,0,0,1,1,1,0]
+    [5,0,0,0,1,0,0,1,2,3,4],
+    [5,0,0,0,6,0,0,1,2,3,4],
+    [5,0,0,0,1,0,0,1,2,3,4],
+    [5,0,0,0,1,0,0,1,2,3,4],
+    [5,0,0,0,1,0,0,1,2,3,4],
+    [5,0,0,0,1,0,0,1,2,3,4]
 ];
 matrix.clear = (row, column) => {
     matrix[column][row] = 0
@@ -47,10 +47,10 @@ function placeRandomMushroom() {
 
 
 function initGame(){
-    configureMatrix(35,35)
+    //configureMatrix(35,35)
     //console.log(matrix)
 
-    placeRandomMushroom()
+    //placeRandomMushroom()
     for(let column = 0; column < matrix.length; column ++){
         for(let row = 0; row < matrix[column].length; row++){
             const creatureType = matrix[column][row]
@@ -187,11 +187,13 @@ server.listen(3000, function(){
 
 io.on("connection", function(socket){
     console.log("ws connection established ...", io.engine.clientsCount)
-    socket.emit("send matrix", matrix)
 
-    initGame()
-    setInterval(function(){
-        updateGame()
-        console.log("Updating Game ...")
-    }, 1000)
+    if (io.engine.clientsCount === 1){
+        initGame()
+        setInterval(function(){
+            updateGame()
+            socket.emit("send matrix", matrix)
+            console.log("Updating Game ...")
+        }, 1000)
+    }
 })

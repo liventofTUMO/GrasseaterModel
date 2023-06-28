@@ -58,15 +58,15 @@ function drawMatrix(columns, rows) {
             const cell = row[width];
             if(cell== 0){
                 fill("white")
-            }else if(cell== 1/*Grass.Creature_ID*/){
+            }else if(cell== 1 /*Grass.Creature_ID*/){
                 fill("green")
-            }else if(cell== GrassEater.Creature_ID){
+            }else if(cell== 2 /*GrassEater.Creature_ID*/){
                 fill("yellow")
-            }else if(cell== MeatEater.Creature_ID){
+            }else if(cell== 3 /*MeatEater.Creature_ID*/){
                 fill("red")
-            }else if(cell== Mushroom.Creature_ID){
+            }else if(cell== 4 /*Mushroom.Creature_ID*/){
                 fill("purple")
-            }else if(cell== EverythingEater.Creature_ID){
+            }else if(cell== 5 /*EverythingEater.Creature_ID*/){
                 fill("black")
             }else if(cell== 6){
                 fill("brown")
