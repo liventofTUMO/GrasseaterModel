@@ -120,9 +120,11 @@ function configureMatrix(columns, rows) {
     game.matrix = matrix;
 }
 
+server.listen(3000, function () {
+    console.log("Server ist gestartet und hört auf Port 3000")
+})
 
 
-/*
 function clickHandler(evt){
     clickCount++;
     console.log(evt);
@@ -134,13 +136,14 @@ function setup (){
     background("red")
 }
 
-let p = document.getElementById(".pElement")
+const p = document.getElementById(".pElement")
 
 if (typeof document !== 'undefined') {
     let element = document.querySelector('.pElement')
+    element.addEventListener("click", clickHandler);
+}else{
+    p.addEventListener("click", clickHandler);
 }
-
-p.addEventListener("click", clickHandler);
 
 function bodyClick(evt){
     console.log("Clicked at X: " + evt.pageX + ", Y: " + evt.pageY)
@@ -164,11 +167,6 @@ my8tn.addEventListener("click", btnCallback)
 window.onload = loadCallback
 window.onkeydown = keyCallback
 window.onclick = bodyClick
-
-*/
-server.listen(3000, function () {
-    console.log("Server ist gestartet und hört auf Port 3000")
-})
 
 
 io.on("connection", function (socket) {

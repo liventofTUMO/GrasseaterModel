@@ -33,26 +33,6 @@ function setup(){
     frameRate(fr)
 }
 
-/*
-function configureMatrix(columns, rows) {
-    const creatureTypes = [
-        0,
-        Grass.Creature_ID,
-        GrassEater.Creature_ID,
-        MeatEater.Creature_ID,
-        Mushroom.Creature_ID
-    ];
-    for (let y = 0; y < rows; y++) {
-        matrix.push([])
-        for (let x = 0; x < columns; x++) {
-            const randomValue = Math.floor(random(0, 3.1))
-            const creatureType = creatureTypes[randomValue];            
-            matrix[y][x] = creatureType
-        }
-    }
-}
-*/
-
 function drawMatrix(columns, rows) {
     for(let height = 0; height < matrix.length; height ++){
         const row = matrix[height];
