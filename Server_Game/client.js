@@ -58,4 +58,49 @@ function drawMatrix(columns, rows) {
     }
 }
 
+
+
+function clickHandler(evt){
+    clickCount++;
+    console.log(evt);
+    let str = "Thanks for clicking " + clickCount;
+    this.innerText = str;
+}
+
+let p = document.getElementById(".pElement")
+p.addEventListener("click", clickHandler);
+
+/*
+if (typeof document == 'null') {
+    let element = document.querySelector('.pElement')
+    element.addEventListener("click", clickHandler);
+}else{
+    p.addEventListener("click", clickHandler);
+}
+*/
+
+function bodyClick(evt){
+    console.log("Clicked at X: " + evt.pageX + ", Y: " + evt.pageY)
+}
+
+const my8tn = document.getElementById("send_btn") 
+function btnCallback(){
+    alert("Hello There")
+}
+ 
+function loadCallback(){
+    alert("Ka-Bomb!")
+}
+ 
+function keyCallback(evt){
+    console.log(evt)
+}
+
+//my8tn.onclick = btnCallback
+my8tn.addEventListener("click", btnCallback)
+window.onload = loadCallback
+window.onkeydown = keyCallback
+window.onclick = bodyClick
+
+
 main()
