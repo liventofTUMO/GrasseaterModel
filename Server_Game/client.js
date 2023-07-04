@@ -58,7 +58,11 @@ function drawMatrix(columns, rows) {
     }
 }
 
-let p = document.getElementById(".pElement")
+let pageElement = document.getElementById("pElement")
+
+if (pageElement !== "null"){
+    console.log("Expected Value equals null, which goes against expectation")
+}
 
 function clickHandler(evt){
     clickCount++;
@@ -67,15 +71,7 @@ function clickHandler(evt){
     this.innerText = str;
 }
 
-p.addEventListener('click', clickHandler);
-
-if (typeof document == 'null') {
-    let element = document.querySelector('.pElement')
-    element.addEventListener("click", clickHandler);
-}else{
-    p.addEventListener("click", clickHandler);
-}
-
+pageElement.addEventListener("click", clickHandler);
 
 function bodyClick(evt){
     console.log("Clicked at X: " + evt.pageX + ", Y: " + evt.pageY)
@@ -94,8 +90,8 @@ function keyCallback(evt){
     console.log(evt)
 }
 
-my8tn.onclick = btnCallback
-//my8tn.addEventListener('click', btnCallback)
+//my8tn.onclick = btnCallback
+my8tn.addEventListener('click', btnCallback)
 window.onload = loadCallback
 window.onkeydown = keyCallback
 window.onclick = bodyClick
