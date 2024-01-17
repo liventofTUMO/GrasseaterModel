@@ -77,7 +77,7 @@ function bodyClick(evt){
     console.log("Clicked at X: " + evt.pageX + ", Y: " + evt.pageY)
 }
 
-const my8tn = document.getElementById("send_btn") 
+let my8tn = document.getElementById("send_btn") 
 function btnCallback(){
     alert("Hello There")
 }
